@@ -1,0 +1,31 @@
+name: git-chglog-action
+description: GitHub Action for git-chglog/git-chglog
+author: "Hiroki Sakuraba"
+inputs:
+  version:
+    description: git-chglog version
+    default: "0.9.1"
+    required: true
+  os:
+    description: host os name. 'linux', 'darwin' or 'windows'.
+    default: linux
+    required: false
+  arch:
+    description: host arch. '386' or 'amd64'.
+    default: amd64
+    required: false
+  repository:
+    description: repository name
+    required: true
+  tag:
+    description: target git tag
+    required: true
+outputs:
+  changelog:
+    description: Generated changelog
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: edit
+  color: gray-dark
